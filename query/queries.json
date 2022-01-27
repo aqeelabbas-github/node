@@ -1,0 +1,20 @@
+{
+    "User":{
+        "getAllData" : "SELECT TOP(5) * FROM [dbo].[UserMaster]",
+        "addNewUser" :"INSERT INTO [dbo].[user_info] (name,email,password) VALUES (@user,@email,@password) ",
+        "deleteUser" : "DELETE FROM [dbo].[user_info] WHERE name = @userName",
+        "updateUserDetails" : "UPDATE [dbo].[user_info] SET password = @newPassword WHERE name = @userName",
+        "validateUser" : "SELECT TOP(1) * FROM [dbo].[UserMaster] WHERE UserId = @userID  AND UserPwd = @userPwd AND CCode = @ccode"
+    },
+    "Company":{
+        "getAll" : "SELECT CCODE AS id, CNAME AS name FROM [dbo].[Company]"
+    },
+    "AccountYear":{
+        "getAll" : "SELECT YEARCODE AS id, YEARNAME AS name FROM [dbo].[AccountYear]"
+    },
+    "Account":{
+        "getAllParent" : "SELECT ACCCODE AS id, ACCNAME AS name FROM [dbo].[Account] WHERE CCode = @ccode AND AccType='G' ORDER BY AccName"
+    }
+
+
+}
